@@ -12,8 +12,11 @@ connectDB();
 app.use(express.json());
 app.use(morgan('dev'));
 
-const providerRoutes = require('./routes/providers')
+const providerRoutes = require('./routes/providers');
+const integrationRoutes = require('./routes/integrations');
+
 app.use('/api', providerRoutes);
+app.use('/api', integrationRoutes);
 
 // Test route
 app.get('/', (req, res) => {
